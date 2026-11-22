@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/unplugmail/directory.schema.json",
+  "title": "UnpluGMail change-email directory",
+  "description": "One file holding every entry. Same format as addon/lib/directory.json in the UnpluGMail add-on, plus the sample fields category, checked_how and time_minutes.",
+  "type": "object",
+  "required": [
+    "version",
+    "entries"
+  ],
+  "properties": {
+    "_note": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "yesNoUnknown": {
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "entry": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "domains",
+        "change_email",
+        "last_checked",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Short lowercase name, e.g. amazon-de."
+        },
+        "name": {
+          "type": "string",
+          "description": "Service name as people know it."
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Web addresses the service uses for its site and its emails."
+        },
+        "category": {
+          "type": "string",
+          "description": "shopping, bank, telecom, insurance, government, travel, platform, ..."
+        },
+        "change_email_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Direct link to the page where you change your email. Leave out if there is none."
+        },
+        "help_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The service's own help article about changing the email."
+        },
+        "change_email": {
+          "enum": [
+            "self",
+            "support",
+            "none",
+            "unknown"
+          ],
+          "description": "self = you can change it yourself on a page. support = only by contacting support (form, chat, letter, phone). none = the email cannot be changed (new account needed). unknown = could not find out."
+        },
+        "needs_password": {
+          "$ref": "#/$defs/yesNoUnknown",
+          "description": "Does the change ask for your current password?"
+        },
+        "checked_how": {
+          "enum": [
+            "own_account",
+            "help_page"
+          ],
+          "description": "own_account = seen while logged in. help_page = taken from the service's official help pages only."
+        },
+        "time_minutes": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Minutes for an ordinary person, without AI, from the service's home page to the change-email step (login included)."
+        },
+        "time_source": {
+          "enum": [
+            "measured",
+            "estimated"
+          ],
+          "description": "measured = timed by a person doing it. estimated = estimated from the documented steps."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Short plain-English tip, e.g. 'Under Mein Konto (My account) > Persönliche Daten (Personal data)'."
+        },
+        "google_signin": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "offered": {
+              "$ref": "#/$defs/yesNoUnknown",
+              "description": "Is there a 'Sign in with Google' button?"
+            },
+            "password_possible": {
+              "$ref": "#/$defs/yesNoUnknown",
+              "description": "Can a Google sign-in account add its own password?"
+            },
+            "email_changeable": {
+              "$ref": "#/$defs/yesNoUnknown",
+              "description": "Can a Google sign-in account change its email?"
+            },
+            "tested_result": {
+              "enum": [
+                "kept_account",
+                "new_account",
+                "not_tested"
+              ],
+              "description": "After the Google account's address changed, did the site keep the account or make a new one?"
+            },
+            "tested_on": {
+              "$ref": "#/$defs/date"
+            },
+            "evidence": {
+              "type": "string",
+              "description": "own test, help page link, ..."
+            }
+          }
+        },
+        "last_checked": {
+          "$ref": "#/$defs/date"
+        },
+        "source": {
+          "enum": [
+            "manual",
+            "community",
+            "import"
+          ]
+        }
+      }
+    }
+  }
+}

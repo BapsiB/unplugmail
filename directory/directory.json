@@ -1,0 +1,486 @@
+{
+  "_note": "UnpluGMail open change-email directory, sample. CC0 1.0 (public domain).",
+  "version": "2026-11-22-sample",
+  "entries": [
+    {
+      "id": "amazon-de",
+      "name": "Amazon",
+      "domains": [
+        "amazon.de"
+      ],
+      "category": "shopping",
+      "help_url": "https://pay.amazon.de/help/5966",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "Only on amazon.de: Mein Konto (My account) > Anmelden & Sicherheit (Login & security) > E-Mail > Bearbeiten (Edit). A link is sent to the new address. amazon.de's own help page blocks automated reading; source is the Amazon Pay help page.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "ebay-de",
+      "name": "eBay",
+      "domains": [
+        "ebay.de"
+      ],
+      "category": "shopping",
+      "change_email_url": "https://accountsettings.ebay.de",
+      "help_url": "https://www.ebay.de/help/account/changing-account-settings/aktualisieren-sie-ihre-personenbezogenen-daten?id=4797",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "Mein eBay (My eBay) > eBay-Konto (eBay account) > Persönliche Daten (Personal data) > Bearbeiten (Edit). Web.",
+      "google_signin": {
+        "offered": "yes",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "kleinanzeigen",
+      "name": "Kleinanzeigen",
+      "domains": [
+        "kleinanzeigen.de"
+      ],
+      "category": "shopping",
+      "help_url": "https://hilfe.kleinanzeigen.de/hc/de/articles/17148967182108",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "Meins (My Kleinanzeigen) > Einstellungen (Settings). Desktop website only, not in the app or mobile site. Confirm via link sent to the new address.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "zalando",
+      "name": "Zalando",
+      "domains": [
+        "zalando.de",
+        "zalando-lounge.pl"
+      ],
+      "category": "shopping",
+      "change_email_url": "https://www.zalando-lounge.pl/myaccount/personal-details",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "own_account",
+      "time_minutes": 5.0,
+      "time_source": "measured",
+      "notes": "Found by hand on Zalando Lounge (Poland): My account > Personal details. The zalando.de help link did not lead there. The zalando.de page is likely similar but not checked.",
+      "google_signin": {
+        "offered": "yes",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "otto",
+      "name": "OTTO",
+      "domains": [
+        "otto.de"
+      ],
+      "category": "shopping",
+      "change_email_url": "https://www.otto.de/myaccount/mydata",
+      "help_url": "https://www.otto.de/shoppages/faq",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 4.0,
+      "time_source": "estimated",
+      "notes": "FAQ says personal data is changed under Mein Konto (My account) > Meine persönlichen Daten (My personal data); the email is confirmed there. The FAQ does not describe the email change step by step.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "lieferando",
+      "name": "Lieferando",
+      "domains": [
+        "lieferando.de"
+      ],
+      "category": "shopping",
+      "help_url": "https://www.lieferando.de/en/customerservice",
+      "change_email": "support",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 10.0,
+      "time_source": "estimated",
+      "notes": "No self-service option: contact Lieferando customer service and ask for the change, from your current account email if possible, giving old and new address. Newsletter settings are separate under My details (https://www.lieferando.de/en/myaccount/my-details). Source: a web search summary, not yet confirmed on a Lieferando help article.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "domains": [
+        "paypal.com",
+        "paypal.de"
+      ],
+      "category": "payments",
+      "help_url": "https://www.paypal.com/de/cshelp/article/HELP135",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 5.0,
+      "time_source": "estimated",
+      "notes": "Einstellungen (Settings) > E-Mail-Adresse > Bearbeiten (Edit), web or app. The main address can't be edited directly: add the new address, confirm it via link, make it primary, then remove the old one.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "ing-de",
+      "name": "ING Deutschland",
+      "domains": [
+        "ing.de"
+      ],
+      "category": "bank",
+      "help_url": "https://www.ing.de/hilfe/persoenliches/daten-aktualisieren/",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 5.0,
+      "time_source": "estimated",
+      "notes": "Contact email. Online banking: Meine Konten (My accounts) > Einstellungen (Settings) > Mein Profil (My profile). App: Service > Persönliche Daten (Personal data). Changes are released in the app.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "dkb",
+      "name": "DKB",
+      "domains": [
+        "dkb.de"
+      ],
+      "category": "bank",
+      "help_url": "https://www.dkb.de/fragen-antworten/wie-kann-ich-meine-persoenlichen-daten-und-kontaktdaten-aendern",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 4.0,
+      "time_source": "estimated",
+      "notes": "Contact email. Web banking or app: Profil > Mein Profil (My profile) > Kontaktdaten ändern (Change contact data), then confirm.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "n26",
+      "name": "N26",
+      "domains": [
+        "n26.com"
+      ],
+      "category": "bank",
+      "help_url": "https://support.n26.com/en-de/account-and-personal-details/personal-information-and-data/change-my-phone-number-address-or-other-personal-data",
+      "change_email": "support",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 10.0,
+      "time_source": "estimated",
+      "notes": "Email can only be changed via the in-app chat with N26 support, after identity checks. Not by email.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "commerzbank",
+      "name": "Commerzbank",
+      "domains": [
+        "commerzbank.de"
+      ],
+      "category": "bank",
+      "help_url": "https://www.commerzbank.de/service/wie-aendere-ich-meine-kontaktdaten/",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 5.0,
+      "time_source": "estimated",
+      "notes": "Banking app only: Service > Kontaktdaten ändern (Change contact data). Confirm with photoTAN.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "telekom",
+      "name": "Deutsche Telekom",
+      "domains": [
+        "telekom.de"
+      ],
+      "category": "telecom",
+      "change_email_url": "https://www.telekom.de/mein-magenta-kundencenter",
+      "help_url": "https://www.telekom.de/hilfe/vertrag-rechnung/vertrag/aenderung/e-mail-adresse",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 5.0,
+      "time_source": "estimated",
+      "notes": "Contact email (contracts and bills). Kundencenter: Mein Profil (My profile) > Kontaktdaten (Contact data) > E-Mail-Adresse > Weiter. App MeinMagenta: user icon > Persönliche Daten (Personal data) > E-Mail-Adresse. Enter the new address and the code sent to it. Alternative: contact form. (Renaming a Telekom mailbox @t-online.de is a different thing, done in E-Mail Center.)",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "vodafone-de",
+      "name": "Vodafone",
+      "domains": [
+        "vodafone.de"
+      ],
+      "category": "telecom",
+      "help_url": "https://forum.vodafone.de/t5/MeinVodafone-E-Mail/%C3%84nderung-der-Kontakt-Email-Adresse-in-meinVodafone-nicht-m%C3%B6glich/td-p/3206726",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 8.0,
+      "time_source": "estimated",
+      "notes": "Login email: changeable in MeinVodafone, per a customer in the Vodafone community. The separate contact email reportedly can NOT be changed online any more (customer, after several WhatsApp chats with Vodafone staff). No official help article found.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "o2-de",
+      "name": "O2",
+      "domains": [
+        "o2online.de"
+      ],
+      "category": "telecom",
+      "change_email_url": "https://www.o2online.de/goto/kontaktadresse/",
+      "help_url": "https://hilfe.o2online.de/mein-o2-o2-online-e-mail-37/hinterlegte-e-mail-adresse-aendern-625474",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "Contact email, in Mein O2 > Meine Daten (My data). Direct link given by O2 staff in the community. Log in with your phone number; confirm via link sent to the new address.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "tk",
+      "name": "Techniker Krankenkasse",
+      "domains": [
+        "tk.de"
+      ],
+      "category": "health insurance",
+      "change_email_url": "https://www.tk.de/techniker/meine-tk/e-mail-adresse-verwalten-2076058",
+      "help_url": "https://www.tk.de/techniker/leistungen-und-mitgliedschaft/online-services-versicherte/meine-tk/meine-daten/neue-e-mail-adresse-aendern-2012320",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 4.0,
+      "time_source": "estimated",
+      "notes": "Meine TK portal page for changing the email; asks for login (insurance number and password) first.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "huk-coburg",
+      "name": "HUK-COBURG",
+      "domains": [
+        "huk.de"
+      ],
+      "category": "insurance",
+      "help_url": "https://www.huk.de/service/meine-huk/faq.html",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 6.0,
+      "time_source": "estimated",
+      "notes": "Meine HUK: email for a contract via Vertragsübersicht (Contract overview) > contract > Anzeigen (Show). Changing login data needs an unlock (Freischaltung) and a 'super password'.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "allianz-de",
+      "name": "Allianz",
+      "domains": [
+        "allianz.de"
+      ],
+      "category": "insurance",
+      "help_url": "https://www.allianz.de/service/meine-allianz/faq/",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 4.0,
+      "time_source": "estimated",
+      "notes": "Meine Allianz > Meine Daten (My data). Security changes confirmed with an SMS code. Without a Meine Allianz account: online form with contract number (https://www.allianz.de/service/kontaktdaten/).",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "elster",
+      "name": "ELSTER (tax portal)",
+      "domains": [
+        "elster.de"
+      ],
+      "category": "government",
+      "help_url": "https://www.elster.de/eportal/helpGlobal?themaGlobal=benutzerkonto",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 7.0,
+      "time_source": "estimated",
+      "notes": "Help page (Benutzerangaben > E-Mail-Adresse) says the change is done once you click the confirmation link sent to the new address; it does not show where to start it. Login needs the certificate file. Users in the ELSTER forum report confusion.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "bundid",
+      "name": "BundID",
+      "domains": [
+        "id.bund.de"
+      ],
+      "category": "government",
+      "change_email": "unknown",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 6.0,
+      "time_source": "estimated",
+      "notes": "The official BundID FAQ (https://id.bund.de/de/faq) has no answer on changing the email. Ask via the contact form there.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "deutsche-bahn",
+      "name": "Deutsche Bahn",
+      "domains": [
+        "bahn.de"
+      ],
+      "category": "travel",
+      "help_url": "https://int.bahn.de/en/faq/change-my-email-address",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "bahn.de: Kundenkonto verwalten (Manage customer account) > Login & Sicherheit (Login & security) > E-Mail ändern (Change email). App: DB Navigator > Profil.",
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "booking",
+      "name": "Booking.com",
+      "domains": [
+        "booking.com"
+      ],
+      "category": "travel",
+      "change_email": "unknown",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 4.0,
+      "time_source": "estimated",
+      "notes": "Booking.com's help centre only opens after signing in or entering a booking number, so no public instructions. Customer service: customer.service.help@booking.com.",
+      "google_signin": {
+        "offered": "yes",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft account",
+      "domains": [
+        "microsoft.com",
+        "live.com",
+        "outlook.com"
+      ],
+      "category": "platform",
+      "change_email_url": "https://account.live.com/names/manage",
+      "help_url": "https://support.microsoft.com/en-us/accounts-billing/manage/change-the-email-address-or-phone-number-for-your-microsoft-account",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 6.0,
+      "time_source": "estimated",
+      "notes": "'Manage how you sign in': add the new address as an alias, verify it, make it primary, then remove the old one.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "apple",
+      "name": "Apple Account",
+      "domains": [
+        "apple.com",
+        "icloud.com"
+      ],
+      "category": "platform",
+      "change_email_url": "https://account.apple.com",
+      "help_url": "https://support.apple.com/en-us/109353",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "iPhone: Settings > [your name] > Sign-In & Security > primary email. Web: account.apple.com > Sign-In and Security > Email & Phone Numbers. Verify the new address.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "domains": [
+        "netflix.com"
+      ],
+      "category": "streaming",
+      "change_email_url": "https://www.netflix.com/email",
+      "help_url": "https://help.netflix.com/en/node/134335",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 2.0,
+      "time_source": "estimated",
+      "notes": "Direct 'Change Email' page. May ask you to confirm your identity.",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    },
+    {
+      "id": "payback",
+      "name": "PAYBACK",
+      "domains": [
+        "payback.de"
+      ],
+      "category": "loyalty",
+      "help_url": "https://www.payback.de/info/mein-payback",
+      "change_email": "self",
+      "needs_password": "unknown",
+      "checked_how": "help_page",
+      "time_minutes": 3.0,
+      "time_source": "estimated",
+      "notes": "Mein PAYBACK > Meine Zugangsdaten (My access data) > E-Mail-Adresse, Passwort oder PIN ändern (Change email, password or PIN).",
+      "google_signin": {
+        "offered": "no",
+        "tested_result": "not_tested"
+      },
+      "last_checked": "2026-11-21",
+      "source": "manual"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "_note": "Sample of the open change-email directory (CC0). Format as in the Adressumzug technical document. Links not on this list fall back to the site's /.well-known/change-password page.",
+  "version": "2026-11-20-sample",
+  "entries": [
+    {
+      "id": "x",
+      "name": "X",
+      "domains": ["x.com", "twitter.com"],
+      "change_email_url": "https://x.com/settings/email",
+      "change_email": "self",
+      "needs_password": "yes",
+      "google_signin": { "offered": "yes", "password_possible": "yes", "email_changeable": "yes", "tested_result": "kept_account", "tested_on": "2026-11-20", "evidence": "own test" },
+      "last_checked": "2026-11-20",
+      "source": "manual"
+    },
+    {
+      "id": "jeuxvideo-com",
+      "name": "jeuxvideo.com",
+      "domains": ["jeuxvideo.com"],
+      "change_email": "unknown",
+      "notes": "Look under your account settings (Mon compte).",
+      "google_signin": { "offered": "yes", "password_possible": "unknown", "email_changeable": "unknown", "tested_result": "new_account", "tested_on": "2026-11-20", "evidence": "own test" },
+      "last_checked": "2026-11-20",
+      "source": "manual"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "domains": ["github.com"],
+      "change_email_url": "https://github.com/settings/emails",
+      "change_email": "self",
+      "needs_password": "yes",
+      "notes": "Add the new address, verify it, then make it your primary address.",
+      "last_checked": "2026-11-20",
+      "source": "manual"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "domains": ["spotify.com"],
+      "change_email_url": "https://www.spotify.com/account/profile/",
+      "change_email": "self",
+      "needs_password": "yes",
+      "last_checked": "2026-11-20",
+      "source": "manual"
+    }
+  ]
+}

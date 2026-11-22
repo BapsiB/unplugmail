@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Adressumzug (prototype)",
+  "version": "0.1.0",
+  "description": "Find the accounts tied to your old email address, secure your Sign in with Google accounts, and move each one to your new address. Everything stays on your computer.",
+  "author": "Adressumzug",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "adressumzug@prototype.invalid",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": [
+    "accountsRead",
+    "messagesRead",
+    "storage",
+    "compose"
+  ],
+  "background": {
+    "scripts": ["lib/rules.js", "lib/store.js", "background.js"]
+  },
+  "browser_action": {
+    "default_title": "Adressumzug",
+    "default_icon": "icons/icon.svg"
+  },
+  "icons": {
+    "64": "icons/icon.svg"
+  }
+}

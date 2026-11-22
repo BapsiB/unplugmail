@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adressumzug mockup</title>
+<style>
+:root{
+  --bg:#f4f4f2; --panel:#ffffff; --ink:#1d1d1b; --muted:#6b6b66; --line:#e0dfda;
+  --accent:#2f6fdb; --accent-soft:#e6eefc; --good:#2e8b57; --good-soft:#e5f3eb;
+  --warn:#b7791f; --warn-soft:#fbf1df; --bad:#c0392b; --bad-soft:#fbe7e4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1b1b1a; --panel:#252524; --ink:#f0efea; --muted:#a3a29c; --line:#3a3a37;
+    --accent:#6b9cf0; --accent-soft:#25324a; --good:#5cc08a; --good-soft:#1f3328;
+    --warn:#e0a84a; --warn-soft:#3a2f1c; --bad:#ef7a6c; --bad-soft:#3d2421;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.note{max-width:980px;margin:16px auto 0;padding:0 16px;color:var(--muted);font-size:13px}
+.window{max-width:980px;margin:12px auto 32px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tabbar{display:flex;gap:4px;padding:8px 12px 0;background:var(--bg);border-bottom:1px solid var(--line)}
+.tab{padding:6px 14px;border-radius:8px 8px 0 0;font-size:13px;color:var(--muted)}
+.tab.on{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-bottom-color:var(--panel);margin-bottom:-1px}
+header{padding:16px 24px 8px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header h1{font-size:18px;margin:0}
+.lang{font-size:13px;color:var(--muted)}
+.steps{display:flex;gap:4px;padding:8px 24px 16px;overflow-x:auto}
+.step{flex:1;min-width:92px;text-align:center;font-size:12px;color:var(--muted)}
+.step .bar{height:6px;border-radius:3px;background:var(--line);margin-bottom:6px}
+.step.done .bar{background:var(--good)}
+.step.now .bar{background:var(--accent)}
+.step.now{color:var(--ink);font-weight:600}
+.step.locked{opacity:.6}
+nav{display:flex;gap:8px;padding:0 24px 12px;flex-wrap:wrap}
+nav button{border:1px solid var(--line);background:none;color:var(--ink);padding:6px 12px;border-radius:20px;cursor:pointer;font:inherit;font-size:13px}
+nav button.on{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+main{padding:8px 24px 28px;border-top:1px solid var(--line)}
+.screen{display:none}.screen.on{display:block}
+.card{border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.card.hero{border:2px solid var(--accent);background:var(--accent-soft)}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 4px}
+.card h2{margin:0 0 8px;font-size:22px}
+.card h3{margin:0 0 6px;font-size:17px}
+.why{color:var(--muted);margin:0 0 16px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:9px 16px;border-radius:8px;cursor:pointer;font:inherit}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.good{background:var(--good);border-color:var(--good);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.goal{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.meter{flex:1;min-width:180px;height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--good)}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:10px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.g{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.badge.ok{background:var(--good-soft);color:var(--good);border-color:transparent}
+.badge.w{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.badge.b{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:12px;color:var(--muted);font-weight:600}
+tr.click{cursor:pointer} tr.click:hover{background:var(--bg)}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.callout{border-left:4px solid var(--warn);background:var(--warn-soft);padding:12px 14px;border-radius:6px;margin:12px 0}
+.callout.bad{border-color:var(--bad);background:var(--bad-soft)}
+.callout.good{border-color:var(--good);background:var(--good-soft)}
+ol.todo{padding-left:20px;margin:8px 0 16px} ol.todo li{margin:6px 0}
+label.check{display:flex;gap:8px;align-items:center;margin:12px 0}
+input[type=text]{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font:inherit}
+.lock{font-size:28px}
+.small{font-size:13px;color:var(--muted)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--panel);padding:10px 16px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@media (max-width:600px){header,main,nav,.steps{padding-left:16px;padding-right:16px}.card{padding:16px}}
+</style>
+</head>
+<body>
+<p class="note">Clickable mockup, not working software. Sample data only. Use the buttons under the step bar to switch screens.</p>
+<div class="window">
+  <div class="tabbar"><span class="tab">Inbox</span><span class="tab on">Adressumzug</span></div>
+  <header>
+    <h1>Moving from anna.example@gmail.com to anna@mailbox.org</h1>
+    <span class="lang">English · Deutsch</span>
+  </header>
+  <div class="steps" id="steps"></div>
+  <nav id="nav">
+    <button data-s="next" class="on">Next task</button>
+    <button data-s="account">Account card</button>
+    <button data-s="list">Checklist</button>
+    <button data-s="lock">Remove Gmail</button>
+  </nav>
+  <main>
+    <!-- NEXT TASK -->
+    <section class="screen on" id="s-next">
+      <div class="card goal">
+        <div><strong>Tonight's goal: 10 accounts</strong><div class="small" id="goalText"></div></div>
+        <div class="meter"><i id="goalBar"></i></div>
+      </div>
+      <div class="card hero" id="nextCard"></div>
+      <p class="small">Order: Google sign-in sites first, then important accounts (bank, health, government), then the rest.</p>
+    </section>
+
+    <!-- ACCOUNT CARD -->
+    <section class="screen" id="s-account">
+      <div class="card" id="accountCard"></div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="screen" id="s-list">
+      <div class="filters" id="filters"></div>
+      <table>
+        <thead><tr><th>Service</th><th>Login</th><th>Plan</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="small">Click a row to open its account card.</p>
+    </section>
+
+    <!-- LOCK -->
+    <section class="screen" id="s-lock">
+      <div class="card" id="lockCard"></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const STEPS=["Connect","Scan","Review","Google connections","Secure first","Change email","Forward","Remove Gmail"];
+const accounts=[
+  {id:"pinterest",name:"Pinterest",login:"google",cat:"other",plan:"move",status:"secure",dir:{password:"yes",email:"yes",result:"not_tested"},tip:"Settings › Account management › Email. Pinterest lets you add a password under Login & security."},
+  {id:"jvc",name:"jeuxvideo.com",login:"google",cat:"other",plan:"move",status:"secure",dir:{password:"unknown",email:"unknown",result:"new_account"},tip:"No direct link yet. Look under Mon compte (My account)."},
+  {id:"x",name:"X",login:"google",cat:"other",plan:"move",status:"secure",dir:{password:"yes",email:"yes",result:"kept_account"},tip:"Settings › Your account › Account information › Email."},
+  {id:"forum",name:"Kochforum (cooking forum)",login:"google",cat:"other",plan:"move",status:"blocked",dir:{password:"no",email:"no",result:"not_tested"},tip:"Only Google sign-in, no settings for email or password."},
+  {id:"spotify",name:"Spotify",login:"google",cat:"other",plan:"move",status:"done",dir:{password:"yes",email:"yes",result:"kept_account"},tip:"Account overview › Edit profile › Email."},
+  {id:"bank",name:"Sparkasse",login:"password",cat:"important",plan:"move",status:"move",tip:"Online-Banking › Persönliche Daten (personal details) › E-Mail."},
+  {id:"tk",name:"Techniker Krankenkasse (health insurer)",login:"password",cat:"important",plan:"move",status:"waiting",tip:"Meine TK › Persönliche Daten › Kontaktdaten."},
+  {id:"elster",name:"ELSTER (tax office)",login:"password",cat:"important",plan:"move",status:"move",tip:"Mein ELSTER › Benutzerkonto › Kontaktdaten."},
+  {id:"amazon",name:"Amazon",login:"password",cat:"other",plan:"move",status:"move",tip:"Your account › Login & security › Email."},
+  {id:"db",name:"Deutsche Bahn",login:"password",cat:"other",plan:"move",status:"done",tip:"Mein Konto › Persönliche Daten."},
+  {id:"shop",name:"Old shoe shop",login:"unknown",cat:"other",plan:"delete",status:"move",tip:"No change page found. A GDPR Art. 17 letter (delete my account) is drafted."},
+  {id:"news",name:"Newsletter: Zeit Online",login:"none",cat:"other",plan:"keep",status:"move",tip:"Newsletter: change the address in the footer link or unsubscribe."}
+];
+const STATUS={secure:["To secure","g"],move:["To move",""],waiting:["Waiting for confirmation","w"],done:["Done","ok"],blocked:["Blocked: keep Gmail","b"]};
+const LOGIN={google:"Google sign-in",password:"Password",unknown:"Not sure",none:"—"};
+const RESULT={kept_account:["In our test this site still found the same account.","good"],new_account:["In our test this site made a NEW, empty account after the address changed. Do this step before anything else.","bad"],not_tested:["Not tested yet. Treat it as risky.",""]};
+let current="pinterest", filter="all", typed=false;
+const $=id=>document.getElementById(id);
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("on");setTimeout(()=>e.classList.remove("on"),1800)}
+function googleOpen(){return accounts.filter(a=>a.login==="google"&&a.status!=="done")}
+function stepNow(){return googleOpen().some(a=>a.status==="secure")?4:5}
+function unsafe(){return accounts.filter(a=>a.login==="google"&&(a.status==="secure"||a.status==="blocked"))}
+function renderSteps(){
+  const now=stepNow();
+  $("steps").innerHTML=STEPS.map((s,i)=>{
+    let c=i<now?"done":i===now?"now":"";
+    if(i===7&&unsafe().length)c+=" locked";
+    return `<div class="step ${c}"><div class="bar"></div>${i+1}. ${s}${i===7&&unsafe().length?" 🔒":""}</div>`}).join("");
+}
+function nextTask(){
+  return accounts.find(a=>a.status==="secure")||accounts.find(a=>a.status==="move"&&a.cat==="important")||accounts.find(a=>a.status==="move");
+}
+function renderNext(){
+  const done=accounts.filter(a=>a.status==="done").length, left=accounts.filter(a=>a.status!=="done"&&a.status!=="blocked").length;
+  $("goalText").textContent=`${done} done tonight · ${left} left · about ${left} to ${left*3} minutes`;
+  $("goalBar").style.width=Math.min(100,done*10)+"%";
+  const a=nextTask();
+  if(!a){$("nextCard").innerHTML=`<p class="kicker">All set</p><h2>Nothing left to do tonight</h2>`;return}
+  const g=a.status==="secure";
+  $("nextCard").innerHTML=`<p class="kicker">Next task</p>
+    <h2>${g?"Secure your "+a.name+" account":"Move "+a.name+" to your new address"}</h2>
+    <p class="why">${g?"You log in to "+a.name+" with Google. If Gmail goes before this is done, you may lose the account.":a.cat==="important"?"Important account: bills and letters from here must reach you.":"Change the email address on this site."}</p>
+    <div class="row"><button class="btn primary" onclick="openCard('${a.id}')">Start</button><button class="btn" onclick="skip('${a.id}')">Later</button></div>`;
+}
+function openCard(id){current=id;show("account")}
+function skip(id){const i=accounts.findIndex(a=>a.id===id);accounts.push(accounts.splice(i,1)[0]);toast("Moved to the end of the list");renderAll()}
+function renderAccount(){
+  const a=accounts.find(x=>x.id===current);const g=a.login==="google";
+  let body="";
+  if(g&&a.status!=="done"&&a.status!=="blocked"){
+    const r=RESULT[a.dir.result];
+    body=`<div class="callout ${r[1]}">${r[0]}</div>
+      <p><strong>Secure this account first</strong></p>
+      <ol class="todo">
+        <li>${a.dir.email==="yes"?"Change the login email to <b>anna@mailbox.org</b>":"Change the login email to your new address, if the site allows it"}${a.dir.password==="yes"?", or add a password":" or add a password"}.</li>
+        <li>Log out of ${a.name}.</li>
+        <li>Log back in <b>without</b> the Google button, using your new email and password.</li>
+      </ol>
+      <label class="check"><input type="checkbox" id="proof" onchange="document.getElementById('doneBtn').disabled=!this.checked"> I logged in without Google</label>`;
+  } else {
+    body=`<ol class="todo"><li>Open the site and log in.</li><li>Type <b>anna@mailbox.org</b> and save.</li><li>Click the confirmation link the site sends. Adressumzug ticks it off when that mail arrives.</li></ol>`;
+  }
+  $("accountCard").innerHTML=`<div class="row" style="justify-content:space-between"><h3>${a.name}</h3><span class="badge ${STATUS[a.status][1]}">${STATUS[a.status][0]}</span></div>
+    <p class="small">Login: ${LOGIN[a.login]}${g?` · Password possible: ${a.dir.password} · Email changeable: ${a.dir.email}`:""}</p>
+    <p><span class="kicker">Tip from the directory</span><br>${a.tip}</p>
+    ${body}
+    <div class="row">
+      <button class="btn" onclick="toast('Opens the change-email page in your browser')">Open site ↗</button>
+      ${g&&a.status==="secure"?`<button class="btn good" id="doneBtn" disabled onclick="mark('${a.id}','move')">Marked safe</button>`:a.status!=="done"&&a.status!=="blocked"?`<button class="btn good" onclick="mark('${a.id}','done')">Done</button>`:""}
+      ${a.status!=="done"&&a.status!=="blocked"?`<button class="btn" onclick="mark('${a.id}','${g?"blocked":"letter"}')">Can't do it</button><button class="btn" onclick="skip('${a.id}');show('next')">Skip</button>`:""}
+    </div>`;
+}
+function mark(id,s){
+  const a=accounts.find(x=>x.id===id);
+  if(s==="letter"){toast("GDPR Art. 16 letter drafted for "+a.name);a.status="waiting"}
+  else{a.status=s;toast(s==="blocked"?a.name+" marked: keep Gmail":s==="move"?a.name+" is safe. Now change its email.":a.name+" done")}
+  renderAll();renderAccount();
+}
+function renderList(){
+  const F={all:"All",secure:"To secure",move:"To move",waiting:"Waiting",blocked:"Blocked",done:"Done"};
+  $("filters").innerHTML=Object.entries(F).map(([k,v])=>`<button class="btn ${filter===k?"primary":""}" onclick="filter='${k}';renderList()">${v}</button>`).join("");
+  $("rows").innerHTML=accounts.filter(a=>filter==="all"||a.status===filter).map(a=>`<tr class="click" onclick="openCard('${a.id}')">
+    <td>${a.name}${a.cat==="important"?' <span class="badge">important</span>':""}</td>
+    <td>${a.login==="google"?'<span class="badge g">Google sign-in</span>':LOGIN[a.login]}</td>
+    <td>${a.plan}</td><td><span class="badge ${STATUS[a.status][1]}">${STATUS[a.status][0]}</span></td></tr>`).join("");
+}
+function renderLock(){
+  const u=unsafe();
+  if(!u.length){$("lockCard").innerHTML=`<p class="kicker">Step 8</p><h2>Removing Gmail is unlocked</h2><div class="callout good">Every Google sign-in account is safe.</div><p>We still suggest keeping Gmail with forwarding for 6 to 12 months. Nothing is lost by waiting.</p><button class="btn primary" onclick="toast('Opens Google’s page to remove Gmail')">Open Google’s page ↗</button>`;return}
+  const names=u.map(a=>a.name);
+  $("lockCard").innerHTML=`<div class="lock">🔒</div><p class="kicker">Step 8</p><h2>Not yet: ${u.length} Google sign-in account${u.length>1?"s are":" is"} not safe</h2>
+    <p>If you remove Gmail now, you may lose these accounts for good. A password reset would go to an address that no longer exists.</p>
+    <ul>${u.map(a=>`<li><b>${a.name}</b> · ${STATUS[a.status][0]} <a href="#" onclick="openCard('${a.id}');return false">open</a></li>`).join("")}</ul>
+    <div class="callout"><b>Our advice:</b> keep Gmail and forward it to anna@mailbox.org. Your move is complete without deleting Gmail.</div>
+    <div class="row"><button class="btn primary" onclick="toast('Forwarding instructions opened')">Set up forwarding instead</button></div>
+    <details style="margin-top:20px"><summary>I understand the risk and want to remove Gmail anyway</summary>
+      <p class="small">Type the names of the accounts you are willing to lose, separated by commas:</p>
+      <p class="small">${names.join(", ")}</p>
+      <input type="text" id="confirm" oninput="checkConfirm()" placeholder="${names.join(", ")}">
+      <p><button class="btn" id="anyway" disabled onclick="toast('Opens Google’s page to remove Gmail')">Remove Gmail anyway</button></p>
+    </details>`;
+}
+function checkConfirm(){
+  const want=unsafe().map(a=>a.name.toLowerCase().trim()).sort().join("|");
+  const got=$("confirm").value.split(",").map(s=>s.toLowerCase().trim()).filter(Boolean).sort().join("|");
+  $("anyway").disabled=want!==got;
+}
+function show(s){
+  document.querySelectorAll(".screen").forEach(e=>e.classList.toggle("on",e.id==="s-"+s));
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.s===s));
+  if(s==="account")renderAccount();if(s==="lock")renderLock();if(s==="list")renderList();if(s==="next")renderNext();
+}
+function renderAll(){renderSteps();renderNext();renderList();renderLock()}
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>show(b.dataset.s));
+renderAll();
+</script>
+</body>
+</html>

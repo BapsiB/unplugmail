@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Adressumzug</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Adressumzug <span class="proto">prototype</span></h1>
+      <div class="move" id="moveLine">Move your online accounts to a new email address.</div>
+    </div>
+    <span class="small private">🔒 Everything stays on this computer</span>
+  </header>
+
+  <!-- The four steps are the navigation. -->
+  <nav class="steps" id="steps"></nav>
+
+  <main>
+    <!-- STEP 1: find accounts -->
+    <section class="screen" id="s-scan">
+      <div class="intro">
+        <h2>Step 1 · Find the accounts that use your old address</h2>
+        <p>Adressumzug looks through the old mailbox for welcome mails, password resets and login alerts. Each sender is probably a website where you have an account. It only reads the sender, subject and date, and the text of a few welcome mails. Nothing leaves this computer.</p>
+      </div>
+      <div class="card">
+        <label class="field">The mail account you are leaving
+          <select id="accountSel"></select>
+        </label>
+        <label class="field">Your new email address
+          <input type="text" id="newAddr" placeholder="you@mailbox.org">
+        </label>
+        <label class="check"><input type="checkbox" id="lateWatch" checked> After the scan, keep watching for mail that still arrives at the old address, and add those senders to my list</label>
+        <div class="row"><button class="btn primary" id="scanBtn">Scan my mailbox</button></div>
+      </div>
+      <div class="card" id="scanCard" hidden>
+        <h3 id="scanTitle">Scanning…</h3>
+        <div class="meter"><i id="scanBar"></i></div>
+        <p class="small" id="scanText"></p>
+        <div id="scanNext"></div>
+      </div>
+      <p class="small"><button class="link" id="resetBtn">Delete my list and start over</button></p>
+    </section>
+
+    <!-- STEP 2: Google sign-in -->
+    <section class="screen" id="s-google">
+      <div class="intro">
+        <h2>Step 2 · Find the sites you open with “Sign in with Google”</h2>
+        <p>Some sites don't know your email address at all: you log in with the <b>Sign in with Google</b> button. If you close your Gmail account, you can't log in there any more and may lose those accounts. So we list them first and fix them before anything else.</p>
+      </div>
+      <div class="card">
+        <h3>A. Found in your mail</h3>
+        <div id="googleFound"></div>
+      </div>
+      <div class="card">
+        <h3>B. Check Google's own list</h3>
+        <p>Many of these sites never sent a mail we could find. Google keeps the full list, but only you can open it.</p>
+        <ol class="todo">
+          <li><button class="btn" id="openConnections">Open your Google connections page ↗</button> <span class="small">(opens in your browser)</span></li>
+          <li>Copy the name of each site listed under “Sign in with Google”, and paste them here, one per line.</li>
+        </ol>
+        <textarea id="googlePaste" rows="5" placeholder="Pinterest&#10;Canva&#10;jeuxvideo.com"></textarea>
+        <div class="row" style="margin-top:8px"><button class="btn" id="addGoogle">Add these sites to my list</button></div>
+      </div>
+      <div class="card done-card" id="googleConfirm"></div>
+    </section>
+
+    <!-- STEP 3: update each account -->
+    <section class="screen" id="s-update">
+      <div id="updateMain">
+        <div class="progress">
+          <div><strong id="progText"></strong><div class="small" id="progSub"></div></div>
+          <div class="meter"><i id="progBar"></i></div>
+        </div>
+        <div class="card hero" id="nextCard"></div>
+        <h3 class="section-title">All accounts</h3>
+        <div class="filters" id="filters"></div>
+        <p class="small" id="filterNote"></p>
+        <div class="list" id="rows"></div>
+      </div>
+      <div id="accountCard" hidden></div>
+    </section>
+
+    <!-- STEP 4: finish -->
+    <section class="screen" id="s-finish"><div id="finishCard"></div></section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="../lib/rules.js"></script>
+<script src="../lib/store.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
